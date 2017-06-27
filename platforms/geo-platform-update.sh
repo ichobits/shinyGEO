@@ -1,7 +1,7 @@
 #~/bin/bash
 # This script will update data from GEO
 
-DIR=~
+DIR=~/platform
 {
 	now=`date +"%m_%d_%Y"`
 	mv $DIR/platform.csv $DIR/backup-platform.csv &&
@@ -15,8 +15,13 @@ DIR=~
 }	
 echo "Update GEO data..."
 data=$(curl --silent "https://www.ncbi.nlm.nih.gov/geo/browse/?view=platforms" | grep "total_count")
-count=$(echo "$data" | grep -Eo '[0-9]*')
-count=`python -c "from math import ceil; print int(ceil($count/5000.0))"`
+
+echo "got data.."
+
+count=$(echo "$data" | grep -Eo '[0-9][0-9]*')
+
+echo "count is $count"
+count=`python -c "from math import ceil; print (int(ceil($count/5000.0)))"`
 
 echo "Getting GEO Data..."
 for ((i=1; i <= count; i++)); do
