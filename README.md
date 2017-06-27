@@ -12,11 +12,13 @@ http://gdancik.github.io/shinyGEO/
 	`install.packages(c("shiny","survival","shinyBS","GGally","ggplot2","shinyAce","knitr","rmarkdown","RCurl","shinyjs","shinydashboard", "survMisc"))` 
 
     `install.packages('devtools')`
+
     `devtools::install_github('rstudio/DT', ref = "f3e86a6")`
 
 3. Type the following to install the Bioconductor Packages required by *shinyGEO*:
 
 	`source("http://bioconductor.org/biocLite.R")`		
+
 	`biocLite(c("Biobase","GEOquery"))`
 
 4. Type the following to run *shinyGEO*:
