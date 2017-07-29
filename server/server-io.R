@@ -134,7 +134,7 @@ observeEvent(input$fileUpload, {
 
    # generate R code for new columns ## 
    if (length(cols.added) > 0) {
-       comment = "## Add column to clinical data table ##"
+       comment = "## Add column(s) to clinical data table ##"
        isolate(add.code(comment))
        for (col in cols.added) {
  	  v = vector.it(data[[col]])
@@ -144,8 +144,8 @@ observeEvent(input$fileUpload, {
    } 
 
    # generate R code to modify columns #
-   if (length(cols.added) > 0) {
-	comment = "## Modify column in clinical data table ##"
+   if (length(cols.mod) > 0) {
+	comment = "## Modify column(s) in clinical data table ##"
        isolate(add.code(comment))
        for (col in cols.mod) {
  	  v = vector.it(data[[col]])
