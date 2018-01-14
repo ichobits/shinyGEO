@@ -62,7 +62,7 @@ output$GeneColumn <- renderUI({
 # dynamically change shinyTitle
 #############################################
 
-shinyTitle = "shinyGEO <span style ='font-size:60%;'>(last updated: 12/12/17)</span>"
+shinyTitle = "shinyGEO <span style ='font-size:60%;'>(last updated: 01/14/18)</span>"
 
 output$shinyTitle = renderText(shinyTitle)
 
