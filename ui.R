@@ -12,7 +12,7 @@ source("ui/ui.dashboard.sidebar.R")
 source("ui/ui.dashboard.body.R")
 
 shinyUI(
-  dashboardPage(
+  dashboardPage(title = "shinyGEO",
     header,
     sidebar,
     body
