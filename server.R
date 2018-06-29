@@ -24,7 +24,7 @@ library(rmarkdown)
 library(RCurl)
 library(shinyjs)
 library(survMisc)
-library(shinyDashboard)
+library(shinydashboard)
 
 source("misc/stripchart2.R")
 source("misc/plot.shiny.km.R")
