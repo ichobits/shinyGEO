@@ -1,7 +1,7 @@
 #~/bin/bash
 # This script will update data from GEO
 
-DIR=~/platform
+DIR=~/RESEARCH/research_easternct/work/GEO-Shiny-App/code/geo-updates/platform
 {
 	now=`date +"%m_%d_%Y"`
 	mv $DIR/platform.csv $DIR/backup-platform.csv &&

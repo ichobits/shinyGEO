@@ -1,7 +1,7 @@
 #~/bin/bash
 # This script will update data from GEO
 
-DIR=~/series
+DIR=~/RESEARCH/research_easternct/work/GEO-Shiny-App/code/geo-updates/series
 {
 	
 	mv $DIR/series.csv $DIR/backup-series.csv &&
