@@ -6,17 +6,18 @@ http://gdancik.github.io/shinyGEO/
 
 ## The preferred way of running *shinyGEO* locally is through docker:
 
-	1. Download docker from https://www.docker.com/get-started
+1. Download docker from https://www.docker.com/get-started
 
-	2. Pull the docker image by running the following from your terminal: 
-```		
-		docker pull gdancik/shinygeo
-```
+2. Pull the docker image by running the following from your terminal: 		
 
-	3. Run *shinyGEO* by using the command: 
-```
-		docker run -it --rm -p 3838:3838 gdancik/shinygeo
-```
+  `docker pull gdancik/shinygeo`
+
+
+3. Run *shinyGEO* by using the command: 
+
+  `docker run -it --rm -p 3838:3838 gdancik/shinygeo`
+
+4. View *shinyGEO* by opening a web browser and entering *localhost:3838* into the address bar.
 
 ## Contributors
 - Main contributors: Jasmine Dumas, Michael Gargano, Garrett M. Dancik, PhD
