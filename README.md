@@ -4,28 +4,19 @@ shinyGEO is a web-based tool that allows a user to download the expression and s
 ## Official Website
 http://gdancik.github.io/shinyGEO/
 
-## Running shinyGEO locally 
-1. Download and install *R* from https://cran.r-project.org. (Note: *shinyGEO* requires *R*>=3.23)
+## The preferred way of running *shinyGEO* locally is through docker:
 
-2. Open *R*. Then type the following (you may copy and paste) into the *R* console in order to install the CRAN packages required by *shinyGEO*:
+	1. Download docker from https://www.docker.com/get-started
 
-	`install.packages(c("shiny","survival","shinyBS","GGally","ggplot2","shinyAce","knitr","rmarkdown","RCurl","shinyjs","shinydashboard", "survMisc"))` 
+	2. Pull the docker image by running the following from your terminal: 
+```		
+		docker pull gdancik/shinygeo
+```
 
-    `install.packages('devtools')`
-
-    `devtools::install_github('rstudio/DT', ref = "f3e86a6")`
-
-3. Type the following to install the Bioconductor Packages required by *shinyGEO*:
-
-	`source("http://bioconductor.org/biocLite.R")`		
-
-	`biocLite(c("Biobase","GEOquery"))`
-
-4. Type the following to run *shinyGEO*:
-
-	`library(shiny)`	 
-
-	`runUrl("https://github.com/gdancik/shinyGEO/archive/master.zip")`
+	3. Run *shinyGEO* by using the command: 
+```
+		docker run -it --rm -p 3838:3838 gdancik/shinygeo
+```
 
 ## Contributors
 - Main contributors: Jasmine Dumas, Michael Gargano, Garrett M. Dancik, PhD
