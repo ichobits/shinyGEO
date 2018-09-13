@@ -10,12 +10,12 @@ http://gdancik.github.io/shinyGEO/
 
 2. Pull the docker image by running the following from your terminal: 		
 
-  `docker pull gdancik/shinygeo`
+    `docker pull gdancik/shinygeo`
 
 
 3. Run *shinyGEO* by using the command: 
 
-  `docker run -it --rm -p 3838:3838 gdancik/shinygeo`
+    `docker run -it --rm -p 3838:3838 gdancik/shinygeo`
 
 4. View *shinyGEO* by opening a web browser and entering *localhost:3838* into the address bar.
 
