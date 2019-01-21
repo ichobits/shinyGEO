@@ -39,4 +39,5 @@ shinyServer(function(input, output, session){
   source("server/server-output.R", local = TRUE)
   source("server/server-survival.R", local = TRUE)
   source("server/formatDE.R", local = TRUE)
+  source("server/platform-update.R", local = TRUE)
 })

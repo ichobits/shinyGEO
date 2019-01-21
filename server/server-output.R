@@ -5,6 +5,8 @@
 load("series/series.RData")
 load("platforms/platforms.RData")
 
+updateDate <- "Dec 30, 2018"
+
 m = matrix(rnorm(1000), ncol=20)
 rownames(m) = paste0("row", 1:nrow(m))
 
@@ -62,7 +64,7 @@ output$GeneColumn <- renderUI({
 # dynamically change shinyTitle
 #############################################
 
-shinyTitle = "shinyGEO <span style ='font-size:60%;'>(last updated: 09/13/18)</span>"
+shinyTitle = paste0("shinyGEO <span style ='font-size:60%;'>(last updated: ", updateDate, ")</span>")
 
 output$shinyTitle = renderText(shinyTitle)
 
