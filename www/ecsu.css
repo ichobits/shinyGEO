@@ -48,14 +48,14 @@ bottom:25px;
 
 
 #downloadSet{
-	border-radius:2px;	
+	border-radius:2px;
 	background-color: rgb(0, 38, 73);
 	color:white;
  }
 
 #downloadDE, #downloadKM {
         margin-bottom:5px;
-	border-radius:2px;	
+	border-radius:2px;
 	background-color: rgb(0, 38, 73);
 	color:white;
  }
@@ -105,8 +105,8 @@ bottom:13px;
 #genBtn{
             position:relative;
             float:right;
-            right:300px;       
-            bottom:5px; 
+            right:300px;
+            bottom:5px;
 }
 #manuBtn{
             position:relative;
@@ -133,7 +133,7 @@ margin-bottom:5px;
 
 .skin-blue .sidebar-menu li.active>a{
   background-color: rgb(124,33,40);
-  
+
 }
 
 .skin-blue .sidebar-menu>li:hover>a {
@@ -157,3 +157,8 @@ margin-bottom:5px;
 
 }
 
+#updateButton{
+  margin: 0 0 7px 10px;
+  padding: 4px 5px;
+  background-color: #ddd;
+}

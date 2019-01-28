@@ -1,11 +1,9 @@
 ##########################################################
 # display functions for conditional panels              ##
 ##########################################################
-
+loading_text = "Loading"
 load("series/series.RData")
 load("platforms/platforms.RData")
-
-updateDate <- "Dec 30, 2018"
 
 m = matrix(rnorm(1000), ncol=20)
 rownames(m) = paste0("row", 1:nrow(m))
@@ -64,7 +62,9 @@ output$GeneColumn <- renderUI({
 # dynamically change shinyTitle
 #############################################
 
-shinyTitle = paste0("shinyGEO <span style ='font-size:60%;'>(last updated: ", updateDate, ")</span>")
+shinyTitle = paste0("shinyGEO <span style ='font-size:60%;'>(updated: ", updateDate, 
+                    ")<button id='updateButton' type='button' class='btn btn-default action-button shiny-bound-input'>Update!</button></span>")
+                    
 
 output$shinyTitle = renderText(shinyTitle)
 

@@ -15,10 +15,6 @@ gse.button = div(style = "display:inline-block; width: 11%",
                 actionButton("submitButton", "Go!")
 )
 
-updateGSE.button = div(style = "",
-                       actionButton("updateButton", "Update!")
-)
-
 
 gse.platform=  conditionalPanel(condition = "output.sidebarDisplay=='PLATFORM'|output.sidebarDisplay=='ALL'",
 
@@ -33,7 +29,7 @@ gse.platform=  conditionalPanel(condition = "output.sidebarDisplay=='PLATFORM'|o
 sidebar = dashboardSidebar(width = 350,
   includeCSS('www/ecsu.css'),
   includeScript('www/ecsu.js'),
-        gse.input, gse.button, updateGSE.button, gse.platform,
+        gse.input, gse.button, gse.platform,
         conditionalPanel(condition = "output.sidebarDisplay=='ALL'",
         sidebarMenu(id = "tabs",
                 hr(),

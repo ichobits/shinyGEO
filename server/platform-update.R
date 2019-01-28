@@ -1,9 +1,8 @@
-# This script updates platform data from http://www.ncbi.nlm.nih.gov/geo/browse/?view=platforms
+# This script updates and processes platform data from 
+# http://www.ncbi.nlm.nih.gov/geo/browse/?view=platforms
 # and series data from http://www.ncbi.nlm.nih.gov/geo/browse/?view=series
-# and process it to create a 'database' of valid accession numbers
 
-#setwd("C:/Users/Felis/shinyGEO")
- 
+
 library(rvest)
 library(readr)
 
@@ -13,7 +12,7 @@ observeEvent(input$updateButton, {
     shinyjs::disable("GSE")
     shinyjs::disable("submitButton")
 
-    updateDate <- format(Sys.Date(), "%b %d, %Y")
+    updateDate <- format(Sys.Date(), "%m/%d/%y")
     total_cnt = 0
     series_total = 0
     platforms <- data.frame()
@@ -22,6 +21,10 @@ observeEvent(input$updateButton, {
 
     tryCatch({
       # get platform data
+      createAlert(session, "alertU", alertId = "Platform-Update-Alert", 
+                  title = "Current Status", style = "info",
+                  content = "Updating platform (GPL) data from GEO", append = FALSE, dismiss = FALSE) 
+      
       total_cnt <- read_html("https://www.ncbi.nlm.nih.gov/geo/browse/?view=platforms") %>% 
             html_node("li#total_count") %>% html_text() %>% as.integer()
   
@@ -30,10 +33,15 @@ observeEvent(input$updateButton, {
       for (i in 1:pages) {
         plURL <- paste0("https://www.ncbi.nlm.nih.gov/geo/browse/?view=platforms&zsort=date&mode=csv&display=5000&page=",i)
         platforms <- rbind(platforms, read_csv(plURL))
-        Sys.sleep(1)
+        Sys.sleep(0.5)
       }
       
+
       # get series data
+      createAlert(session, "alertU", alertId = "Series-Update-Alert", 
+                  title = "Current Status", style = "info",
+                  content = "Updating series (GSE) data from GEO", append = FALSE, dismiss = FALSE)
+      
       series_total <- read_html("https://www.ncbi.nlm.nih.gov/geo/browse/") %>% 
         html_node("li#total_count") %>% html_text() %>% as.integer()
       
@@ -45,7 +53,7 @@ observeEvent(input$updateButton, {
         Sys.sleep(0.5)
       }
 
-    },  error = function(e) {cat("Update failed, please try again later\n")})
+    },  error = function(e) {cat("Update failed")})
     
        
     if (total_cnt != 0 && series_total !=0 && nrow(platforms) == total_cnt && nrow(series) == series_total) {
@@ -82,9 +90,12 @@ observeEvent(input$updateButton, {
       save(series.accession, series.description, file = "series/series.RData")
   
       cat("Update successful")
+      createAlert(session, "alertU", alertId = "Success-Update-Alert", 
+                  title = "Update successful!", style = "info",
+                  content = "", append = FALSE, dismiss = TRUE) 
       
       # change update date in shinyTitle
-      shinyTitle = paste0("shinyGEO <span style ='font-size:60%;'>(last updated: ", updateDate, ")</span>")
+      shinyTitle = paste0("shinyGEO <span style ='font-size:60%;'>(updated: ", updateDate, ")<button id='updateButton' type='button' class='btn btn-default action-button shiny-bound-input'>Update!</button></span>")
       output$shinyTitle = renderText(shinyTitle)
       
       #update drop down options for GSE number
@@ -102,7 +113,9 @@ observeEvent(input$updateButton, {
       shinyjs::disable("updateButton")
     
     } else {
-      cat("Update failed, please try again later\n")
+      createAlert(session, "alertU", alertId = "Error-Update-Alert", 
+                  title = "Update failed, please try again later.", style = "danger", 
+                  content = "", append = FALSE, dismiss = TRUE) 
     }
     
     shinyjs::enable("GSE")
