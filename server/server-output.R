@@ -1,7 +1,7 @@
 ##########################################################
 # display functions for conditional panels              ##
 ##########################################################
-loading_text = "Loading"
+
 load("series/series.RData")
 load("platforms/platforms.RData")
 
