@@ -146,11 +146,11 @@ observe ({
     pl.accession = platforms.accession[keep]
     pl.description = platforms.description[keep]
     if (length(pl.accession) == 1) {
-      pl.selected = pl.accession 
+      pl.selected = pl.accession
       shinyjs::disable('platform')
       choices = pl.selected
     } else {
-      pl.selected = NULL
+      pl.selected = FALSE
       choices = data.frame(label = pl.accession, value = pl.accession, 
 		name = pl.description)
       pl.options = list(
@@ -169,7 +169,7 @@ observe ({
   updateSelectizeInput(session, inputId='platform', label = "Platform", server = TRUE,
                choices = choices,
                selected = pl.selected,
-	       options = pl.options 
+               options = pl.options 
 )
 
   if (!is.null(pl)) {
