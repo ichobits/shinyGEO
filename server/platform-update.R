@@ -33,14 +33,13 @@ observeEvent(input$updateButton, {
       for (i in 1:pages) {
         plURL <- paste0("https://www.ncbi.nlm.nih.gov/geo/browse/?view=platforms&zsort=date&mode=csv&display=5000&page=",i)
         platforms <- rbind(platforms, read_csv(plURL))
-        Sys.sleep(0.5)
       }
       
 
       # get series data
       createAlert(session, "alertU", alertId = "Series-Update-Alert", 
                   title = "Current Status", style = "info",
-                  content = "Updating series (GSE) data from GEO", append = FALSE, dismiss = FALSE)
+                  content = "Updating series (GSE) data from GEO. This may take a minute, please be patient...", append = FALSE, dismiss = FALSE)
       
       series_total <- read_html("https://www.ncbi.nlm.nih.gov/geo/browse/") %>% 
         html_node("li#total_count") %>% html_text() %>% as.integer()
@@ -50,7 +49,6 @@ observeEvent(input$updateButton, {
       for (i in 1:series.pages) {
         plURL <- paste0("https://www.ncbi.nlm.nih.gov/geo/browse/?view=series&zsort=date&mode=csv&display=5000&page=",i)
         series <- rbind(series, read_csv(plURL))
-        Sys.sleep(0.5)
       }
 
     },  error = function(e) {cat("Update failed")})
@@ -95,7 +93,7 @@ observeEvent(input$updateButton, {
                   content = "", append = FALSE, dismiss = TRUE) 
       
       # change update date in shinyTitle
-      shinyTitle = paste0("shinyGEO <span style ='font-size:60%;'>(updated: ", updateDate, ")<button id='updateButton' type='button' class='btn btn-default action-button shiny-bound-input'>Update!</button></span>")
+      shinyTitle = paste0("shinyGEO <span style ='font-size:60%;'>(updated: ", updateDate, ")<button id='updateButton' type='button' class='btn btn-default action-button shiny-bound-input' disabled>Update!</button></span>")
       output$shinyTitle = renderText(shinyTitle)
       
       #update drop down options for GSE number
@@ -109,8 +107,7 @@ observeEvent(input$updateButton, {
                          }"
                       ))
       )
-      
-      shinyjs::disable("updateButton")
+
     
     } else {
       createAlert(session, "alertU", alertId = "Error-Update-Alert", 

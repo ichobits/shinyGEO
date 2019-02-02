@@ -1,4 +1,6 @@
 TRACE <- FALSE 
+UPDATE <- TRUE ## flag for update button display
+
 shinycat <<-function(...) {
 	if (TRACE) cat(...)
 }
@@ -6,6 +8,7 @@ shinyprint <<-function(...) print(...)
 
 shinycat("begin source server.R\n")
 source("server/settings.R")
+
 
 
 # DT uses devtools::install_github('rstudio/DT', ref = "f3e86a6")
