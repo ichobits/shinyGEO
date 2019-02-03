@@ -49,6 +49,8 @@ formatBSModal<-function (id, title, trigger, applyID, ..., size)
   )
   #htmltools::attachDependencies(bsTag, shinyBSDep)
 }
+
+
 genBSModal<-function (id, title, trigger, ..., size) 
 {
   
