@@ -54,7 +54,6 @@ analyses.common = conditionalPanel(condition = "input.tabs == 'DifferentialExpre
 body = dashboardBody(
   conditionalPanel(condition = "input.tabs != 'About' & input.tabs != 'Code'",
                    bsAlert("alert1"),
-                   bsAlert("alertU"),
                    uiOutput("busy")
                    ),
 
@@ -132,9 +131,6 @@ body = dashboardBody(
             	    HTML("<div class=\"progress\" style=\"height:25px !important\"><div class=\"progress-bar progress-bar-striped active\" role=\"progressbar\" aria-valuenow=\"40\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:100%\">
         <span id=\"bar-text\">Loading...</span></div></div>") ),
   HTML("<link href='https://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css'>"),
-
-
-
 
 
    analyses.common, 

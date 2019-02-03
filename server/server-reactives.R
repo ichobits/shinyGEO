@@ -80,10 +80,7 @@ observeEvent(input$GSE, {
 ################################
 observeEvent(input$tabs, {
   shinycat("tab change...\n")
-  
-  closeAlert(session, "Success-Update-Alert")
-  closeAlert(session, "Error-Update-Alert")
-  
+ 
   if (input$tabs == "NewAnalysis") {
 	shinycat("New Analysis")
 	shinyjs::enable("GSE")
@@ -206,8 +203,6 @@ dataInput <- reactive({
   closeAlert(session, "GSE-progress-alert")
   closeAlert(session, "GPL-alert")
   closeAlert(session, "Analysis-alert")
-  closeAlert(session, "Success-Update-Alert")
-  closeAlert(session, "Error-Update-Alert")
 
   content = "Downloading Series (GSE) data from GEO" 
 # content = HTML("<img src = 'PleaseWait.gif' width=50% height =50%>")

@@ -28,10 +28,6 @@ tab.about = tabItem("About",
          <h3 class='panel-title' style = \'font-weight: bold\'>Additional Contributors</h3>
 </div>
 <div class = 'panel-body'>
-  <p><span style = \'font-weight: bold\'> Nataliia Romanenko </span>
-        is an Undegraduate Student in BS in Computer Science program at Eastern Connecticut State University (Willimantic, CT). 
-         <span class= \'label label-info\'>Contributor</span></p>
-
 <p>   <span style = \'font-weight: bold\'> Ken-Heng Henry Liao </span>
         has BS degrees in Computer Science and Mathematics from Eastern Connecticut State University (Wilimantic, CT). 
         He is currently pursuing a Masters in Bioinformatics at Boston University. <span class= \'label label-info\'>Contributor</span></p>
