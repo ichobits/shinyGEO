@@ -19,9 +19,13 @@ http://gdancik.github.io/shinyGEO/
 
 4. View *shinyGEO* by opening a web browser and entering *localhost:3838* into the address bar.
 
+5. *New*. ShinyGEO datasets can now be updated directly from the web application. Click the Update button to update the datasets (updating data sets once a month is recommended). Then open another terminal or command prompt, as was done for step 3, and enter the following command to save your changes. This updates the gdancik/shinygeo image with the updated datasets:
+
+`docker commit $(docker ps -alq) gdancik/shinygeo`
+
 ## Contributors
 - Main contributors: Jasmine Dumas, Michael Gargano, Garrett M. Dancik, PhD
-- Additional contributors: Ken-Heng Liao, Gregory Harper, Brandon Spratt
+- Additional contributors: Nataliia Romanenko, Ken-Heng Liao, Gregory Harper, Brandon Spratt
 
 ## Acknowledgements
 This work was supported, in part, by Google Summer of Code funding to JD in 2015. MG, KHL, GH, and BS contributed as part of an independent study in Computer Science / Bioinformatics while undergraduate students at Eastern Connecticut State University, Willimantic, CT,  USA.
