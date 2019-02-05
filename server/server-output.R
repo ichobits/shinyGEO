@@ -62,9 +62,9 @@ output$GeneColumn <- renderUI({
 # dynamically change shinyTitle
 #############################################
 
-# update button, toggled by UPDATE flag
+# update button, toggled by ALLOW_UPDATE flag
 u_button <- "<button id='updateButton' type='button' class='btn btn-default action-button shiny-bound-input'>Update!</button>"
-if (!UPDATE) u_button <- ""
+if (!ALLOW_UPDATE) u_button <- ""
 
 shinyTitle = paste0("shinyGEO <span style ='font-size:60%;'>(updated: ", updateDate,")", u_button,"</span>")
 output$shinyTitle = renderText(shinyTitle)

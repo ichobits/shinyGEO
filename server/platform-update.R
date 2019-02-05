@@ -80,8 +80,9 @@ observeEvent(input$updateButton, {
       series.description = series.description[o.series]
       
       # backup existing platform and series data
-      file.rename("platforms/platforms.RData", "platforms/backup-platforms.RData")
-      file.rename("series/series.RData", "series/backup-series.RData")
+      # GD: let's not do this for now; these can be retreived from github/docker if necessary
+      #file.rename("platforms/platforms.RData", "platforms/backup-platforms.RData")
+      #file.rename("series/series.RData", "series/backup-series.RData")
       
       # save platdorm and series data 
       save(platforms.accession, platforms.description, updateDate, file = "platforms/platforms.RData")

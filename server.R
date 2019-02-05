@@ -1,5 +1,5 @@
 TRACE <- FALSE 
-UPDATE <- TRUE ## flag for update button display
+ALLOW_UPDATE <- TRUE ## flag for update button display
 
 shinycat <<-function(...) {
 	if (TRACE) cat(...)

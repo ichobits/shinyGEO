@@ -29,7 +29,7 @@ tab.about = tabItem("About",
 </div>
 <div class = 'panel-body'>
   <p><span style = \'font-weight: bold\'> Nataliia Romanenko </span>
-        is an Undegraduate Student in BS in Computer Science program at Eastern Connecticut State University (Willimantic, CT). 
+        is pursuing a BS in Computer Science from Eastern Connecticut State University (Willimantic, CT). 
          <span class= \'label label-info\'>Contributor</span></p>
 
 <p>   <span style = \'font-weight: bold\'> Ken-Heng Henry Liao </span>
